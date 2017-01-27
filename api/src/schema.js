@@ -27,9 +27,12 @@ module.exports = `
         albums: [Album],
     }
     type Query {
-      albums(title:String!): [Album],
-      album(idMb:String!): Album,
-      playlists: [Playlist],
-      playlist(id:ID!): Playlist,
+        albums(title:String!): [Album],
+        album(idMb:String!): Album,
+        playlists: [Playlist],
+        playlist(id:ID!): Playlist,
+    }
+    type Mutation {
+        newPlaylist(title: String!): Playlist,
     }
 `;
