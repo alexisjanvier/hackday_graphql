@@ -13,3 +13,6 @@ install: ## Install npm dependencies
 run:
 	@echo "Start server"
 	./node_modules/.bin/nodemon -x "node --harmony-async-await" src/index.js
+
+test:
+	npm test

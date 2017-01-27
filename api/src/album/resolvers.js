@@ -1,7 +1,7 @@
 module.exports = {
     Query: {
         album: (root, { idMb }, context) => {
-            return context.musicBrainzClient.getAlbum(args.idMb);
+            return context.musicBrainzClient.getAlbum(idMb);
         },
         albums: (root, { title }, context) => {
             return context.musicBrainzClient.searchAlbums(title);
