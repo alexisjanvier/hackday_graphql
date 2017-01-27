@@ -1,5 +1,6 @@
 const express = require ('express');
 const bodyParser = require ('body-parser');
+const cors = require('cors');
 const { graphqlExpress, graphiqlExpress } = require ('graphql-server-express');
 const { buildSchema } = require ('graphql');
 const { makeExecutableSchema } = require('graphql-tools');
@@ -20,6 +21,8 @@ const graphQLSchema = makeExecutableSchema({
 const PORT = 3111;
 
 var app = express();
+
+app.use(cors());
 
 // bodyParser is needed just for POST.
 app.use('/graphql', bodyParser.json(), graphqlExpress({
