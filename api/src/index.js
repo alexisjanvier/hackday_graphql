@@ -2,10 +2,18 @@ const express = require ('express');
 const bodyParser = require ('body-parser');
 const { graphqlExpress, graphiqlExpress } = require ('graphql-server-express');
 const { buildSchema } = require ('graphql');
+const { makeExecutableSchema } = require('graphql-tools');
+const Date = require('./utils/date');
 
 const schema = require ('./schema');
 
-const graphQLSchema = buildSchema(schema);
+const graphQLSchema = makeExecutableSchema({
+    typeDefs: [schema],
+    resolvers: Object.assign(
+        {},
+        Date
+    ),
+});
 
 const PORT = 3111;
 

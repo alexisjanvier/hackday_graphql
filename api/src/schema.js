@@ -5,7 +5,7 @@ module.exports = `
         cover: String!,
         title: String!,
         artist: String!,
-        publicationDate: Int!,
+        publicationDate: Date!,
         releases: [Release],
         similars: [Album],
         spotifyLinks: [SpotifyLink],
