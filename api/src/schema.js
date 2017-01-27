@@ -1,7 +1,9 @@
 module.exports = `
     scalar Date
+    # Album entity
     type Album {
-        idMb: String!,
+        # Id musicBrainz
+        idMb: String! ,
         cover: String!,
         title: String!,
         artist: String!,

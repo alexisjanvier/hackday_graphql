@@ -9,3 +9,7 @@ help:
 install: ## Install npm dependencies
 	@echo "Installing Node dependencies"
 	yarn install
+
+run:
+	@echo "Start server"
+	./node_modules/.bin/nodemon src/index.js
