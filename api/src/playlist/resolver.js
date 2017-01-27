@@ -19,8 +19,6 @@ module.exports = {
                 albums: [],
             });
 
-            console.log(newPlaylist);
-
             return {
                 id: newPlaylist._id,
                 title: newPlaylist.title,
