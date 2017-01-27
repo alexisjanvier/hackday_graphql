@@ -27,7 +27,7 @@ const app = express();
 app.use(cors());
 
 app.use(async (req, res, next) => {
-    req.db = await MongoClient.connect('mongodb://localhost:27017/graphMusic');
+    req.db = await MongoClient.connect('mongodb://hackday_apollo:hackday_apollo@ds033986.mlab.com:33986/hackday_apollo');
 
     await next();
 });
@@ -52,7 +52,5 @@ app.use('/graphql', bodyParser.json(), (req, res, next) => graphqlExpress({
 })(req, res, next));
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-
-app.use('/', express.static('public'))
 
 app.listen(3000);

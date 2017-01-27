@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ApolloClient from 'apollo-client';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import Root from './Root';
 import rootReducer from './reducers';
 import configureStore from './configureStore';
 
-const client = new ApolloClient();
+const networkInterface = createNetworkInterface({ uri: `${process.env.REACT_APP_API_URL}/graphql` });
+
+const client = new ApolloClient({
+    networkInterface,
+});
 const store = configureStore(rootReducer);
 
 // Needed for onTouchTap

@@ -6,9 +6,6 @@
   "repository": "https://github.com/alexisjanvier/hackday_graphql",
   "author": "Marmelab",
   "license": "MIT",
-  "scripts": {
-    "test": "node_modules/mocha/bin/mocha ./**/*.spec.js --recursive"
-  },
   "dependencies": {
     "body-parser": "1.16.0",
     "cors": "2.8.1",
@@ -26,7 +23,8 @@
     "node": "7.4.0"
   },
   "scripts": {
+    "test": "node_modules/mocha/bin/mocha ./**/*.spec.js --recursive",    
     "start": "node --harmony-async-await src/index.js",
-    "deploy": "now -e REACT_APP_SECRET_CODE=$REACT_APP_SECRET_CODE"
+    "deploy": "now -e CLIENT_URL=$CLIENT_URL"
   }
 }
