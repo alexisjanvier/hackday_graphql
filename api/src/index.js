@@ -9,6 +9,7 @@ const AlbumResolvers = require('./album/resolvers');
 const PlaylistResolvers = require('./playlist/resolver');
 const { MongoClient } = require('mongodb');
 const merge = require('lodash.merge');
+const { data } = require('./data');
 
 const schema = require ('./schema');
 
@@ -44,20 +45,8 @@ app.use('/graphql', bodyParser.json(), (req, res, next) => graphqlExpress({
             }],
         },
         musicBrainzClient: {
-            getAlbum: (idMb) => ({
-                idMb: 'thisisanId' ,
-                cover: 'thisIsAnUrl',
-                title: 'thisIsATitle',
-                artist: 'thisAnArtisteName',
-                publicationDate: new Date('2015-12-12'),
-            }),
-            searchAlbums: (title) => [{
-                idMb: 'thisisanId' ,
-                cover: 'thisIsAnUrl',
-                title: 'thisIsATitle',
-                artist: 'thisAnArtisteName',
-                publicationDate: new Date('2015-12-12'),
-            }],
+            getAlbum: (idMb) => (data[0]),
+            searchAlbums: (title) => data,
         },
     }
 })(req, res, next));
