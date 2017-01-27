@@ -21,8 +21,6 @@ const graphQLSchema = makeExecutableSchema({
     ),
 });
 
-const PORT = 3111;
-
 const app = express();
 
 app.use(cors());
@@ -31,7 +29,7 @@ app.use(async (req, res, next) => {
     req.db = await MongoClient.connect('mongodb://localhost:27017/graphMusic');
 
     await next();
-})
+});
 
 // bodyParser is needed just for POST.
 app.use('/graphql', bodyParser.json(), (req, res, next) => graphqlExpress({
@@ -66,4 +64,6 @@ app.use('/graphql', bodyParser.json(), (req, res, next) => graphqlExpress({
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
-app.listen(PORT);
+app.use('/', express.static('public'))
+
+app.listen(3000);
