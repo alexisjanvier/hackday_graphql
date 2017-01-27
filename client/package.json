@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5"
+    "react-scripts": "0.8.5",
+    "serve": "2.4.4"
   },
   "dependencies": {
     "babel-eslint": "7.1.1",
@@ -24,8 +25,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "now-start": "cd build && serve -s ./",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "now -e REACT_APP_SECRET_CODE=$REACT_APP_SECRET_CODE"
   }
 }
