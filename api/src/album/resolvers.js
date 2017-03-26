@@ -3,7 +3,7 @@ module.exports = {
         album: (root, { idMb }, context) => {
             return context.musicBrainzClient.getAlbum(idMb);
         },
-        albums: (root, { title }, context) => {
+        albums: (root, { title, sort }, context) => {
             return context.musicBrainzClient.searchAlbums(title);
         },
     },

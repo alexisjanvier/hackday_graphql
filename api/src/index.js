@@ -2,7 +2,6 @@ const express = require ('express');
 const bodyParser = require ('body-parser');
 const cors = require('cors');
 const { graphqlExpress, graphiqlExpress } = require ('graphql-server-express');
-const { buildSchema } = require ('graphql');
 const { makeExecutableSchema } = require('graphql-tools');
 const DateResolvers = require('./utils/date');
 const AlbumResolvers = require('./album/resolvers');
@@ -53,4 +52,4 @@ app.use('/graphql', bodyParser.json(), (req, res, next) => graphqlExpress({
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
-app.listen(3000);
+app.listen(3001);

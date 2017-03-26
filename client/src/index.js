@@ -8,7 +8,7 @@ import Root from './Root';
 import rootReducer from './reducers';
 import configureStore from './configureStore';
 
-const networkInterface = createNetworkInterface({ uri: `${process.env.REACT_APP_API_URL}/graphql` });
+const networkInterface = createNetworkInterface({ uri: 'http://localhost:3001/graphql' });
 
 const client = new ApolloClient({
     networkInterface,
