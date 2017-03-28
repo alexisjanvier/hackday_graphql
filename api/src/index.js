@@ -26,7 +26,7 @@ const app = express();
 app.use(cors());
 
 app.use(async (req, res, next) => {
-    req.db = await MongoClient.connect('mongodb://hackday_apollo:hackday_apollo@ds033986.mlab.com:33986/hackday_apollo');
+    req.db = await MongoClient.connect('mongodb://localhost:27017/graphMusic');
 
     await next();
 });

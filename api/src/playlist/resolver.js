@@ -2,7 +2,6 @@ module.exports = {
     Query: {
         playlists: async (root, params, { db }) => {
             const playlists = await db.collection('playlists').find({}).toArray();
-            console.log(playlists);
             return playlists.map(pl => ({
                 id: pl._id,
                 title: pl.title,
